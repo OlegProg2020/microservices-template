@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(info = @Info(
-        title = "microservice-1",
+        title = "${spring.application.name}",
         version = "1.0.0"
     )
 )
