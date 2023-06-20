@@ -15,3 +15,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  application:
+    name: microservice-1
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
