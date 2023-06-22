@@ -6,4 +6,8 @@ public class DataMissingException extends RuntimeException {
         super();
     }
 
+    public DataMissingException(String message) {
+        super(message);
+    }
+
 }
