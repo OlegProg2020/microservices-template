@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: ./migrations/db.changelog-create-table-key_value.sql
+      relativeToChangelogFile: true
