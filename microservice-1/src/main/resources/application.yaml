@@ -15,6 +15,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  liquibase:
+    enabled: true
   application:
     name: microservice-1
 logging:
