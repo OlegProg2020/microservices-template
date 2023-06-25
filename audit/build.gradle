@@ -28,6 +28,9 @@ dependencies {
     implementation 'org.springframework.kafka:spring-kafka:3.0.7'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.1.0'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave:1.1.2'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave:2.16.4'
 }
 
 tasks.named('test') {
