@@ -10,3 +10,7 @@ Zipkin is used for distributed tracing. It needs to be run separately:
 ```
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
+Redis is used for caching. To run Redis, execute:
+```
+docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
+```
