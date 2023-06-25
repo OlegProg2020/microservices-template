@@ -19,7 +19,7 @@ public class AuditNotificationServiceImpl implements AuditNotificationService {
     public void sendRequestInformation(String information) {
         information = "app: " +
                 applicationName +
-                ", request information: " +
+                ", " +
                 information;
 
         kafkaTemplate.send("audit.topic", information);
