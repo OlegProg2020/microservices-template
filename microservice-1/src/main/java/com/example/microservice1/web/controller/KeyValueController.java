@@ -6,18 +6,15 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
 @RestController
 @RequestMapping(path = "/keyvalue", produces = {MediaType.APPLICATION_JSON_VALUE})
-@Validated
 @RequiredArgsConstructor
 public class KeyValueController {
 
@@ -41,8 +38,8 @@ public class KeyValueController {
     })
     @GetMapping
     public ResponseEntity<Collection<KeyValue>> findAll(
-            @RequestParam(name = "page", required = false, defaultValue = "0") @Min(0) int page,
-            @RequestParam(name = "size", required = false, defaultValue = "10") @Min(1) int size
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page,
+            @RequestParam(name = "size", required = false, defaultValue = "10") int size
     ) {
         return ResponseEntity.ok(keyValueService.findAll(page, size));
     }
@@ -64,7 +61,7 @@ public class KeyValueController {
             )
     })
     @GetMapping("/{id}")
-    public ResponseEntity<String> findValueById(@Min(1) @PathVariable(name = "id") Long id) {
+    public ResponseEntity<String> findValueById(@PathVariable(name = "id") Long id) {
         return ResponseEntity.ok(keyValueService.findValueById(id));
     }
 
