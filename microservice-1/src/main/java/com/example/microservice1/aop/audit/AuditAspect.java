@@ -21,15 +21,14 @@ public class AuditAspect {
         HttpServletRequest request =
                 ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                         .getRequest();
-        StringBuilder builder = new StringBuilder();
-        builder.append("method: ")
-                .append(request.getMethod())
-                .append(", url: ")
-                .append(request.getServerName())
-                .append(request.getServerPort())
-                .append(request.getRequestURI());
+        String information = "method: " +
+                request.getMethod() +
+                ", url: " +
+                request.getServerName() +
+                request.getServerPort() +
+                request.getRequestURI();
 
-        auditNotificationService.sendRequestInformation(builder.toString());
+        auditNotificationService.sendRequestInformation(information);
     }
 
 }

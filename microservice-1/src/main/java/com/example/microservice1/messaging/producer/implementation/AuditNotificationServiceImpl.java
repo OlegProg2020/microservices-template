@@ -17,13 +17,12 @@ public class AuditNotificationServiceImpl implements AuditNotificationService {
 
     @Override
     public void sendRequestInformation(String information) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("app: ")
-                .append(applicationName)
-                .append(", request information: ")
-                .append(information);
+        information = "app: " +
+                applicationName +
+                ", request information: " +
+                information;
 
-        kafkaTemplate.send("audit.topic", builder.toString());
+        kafkaTemplate.send("audit.topic", information);
     }
 
 }
