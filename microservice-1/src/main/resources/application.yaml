@@ -3,18 +3,20 @@ server:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/microservice_1_db}
-    username: ${POSTGRES_USER:postgres}
-    password: ${POSTGRES_PASSWORD:admin1234}
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none
     generate-ddl: false
     open-in-view: false
     show-sql: false
     properties:
       hibernate:
         format_sql: true
+  liquibase:
+    enabled: true
+  kafka:
+    bootstrap-servers:
+      - localhost:29092
   application:
     name: microservice-1
 logging:
