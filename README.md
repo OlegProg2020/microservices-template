@@ -4,6 +4,7 @@ Required parameters to define for microservice-1 and microservice-2:
 1. SPRING_DATASOURCE_URL
 2. SPRING_DATASOURCE_USERNAME
 3. SPRING_DATASOURCE_PASSWORD
+
 And non-required for microservice-1, microservice-2 and audit:
 1. KAFKA_BOOTSTRAP_SERVERS (default: "localhost:29092")
 
