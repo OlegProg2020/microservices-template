@@ -2,6 +2,8 @@ package com.example.microservice1.web.controller;
 
 import com.example.microservice1.entity.KeyValue;
 import com.example.microservice1.service.KeyValueService;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -36,6 +38,10 @@ public class KeyValueController {
                     description = "Invalid value of the page or size parameters"
             )
     })
+    @Parameters({
+            @Parameter(name = "page", description = "Page number >= 0"),
+            @Parameter(name = "size", description = "Page size >= 1")
+    })
     @GetMapping
     public ResponseEntity<Collection<KeyValue>> findAll(
             @RequestParam(name = "page", required = false, defaultValue = "0") int page,
@@ -59,6 +65,9 @@ public class KeyValueController {
                     content = @Content,
                     description = "Value with such key was not found"
             )
+    })
+    @Parameters({
+            @Parameter(name = "id", description = "KeyValue identifier >= 1")
     })
     @GetMapping("/{id}")
     public ResponseEntity<String> findValueById(@PathVariable(name = "id") Long id) {
