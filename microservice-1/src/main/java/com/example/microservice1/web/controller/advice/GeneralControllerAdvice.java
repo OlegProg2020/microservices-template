@@ -16,7 +16,7 @@ public class GeneralControllerAdvice {
     }
 
     @ExceptionHandler({ConstraintViolationException.class, MethodArgumentNotValidException.class})
-    public ResponseEntity<?> onConstraintViolationException() {
+    public ResponseEntity<?> onValidationExceptions() {
         return ResponseEntity.badRequest().build();
     }
 
